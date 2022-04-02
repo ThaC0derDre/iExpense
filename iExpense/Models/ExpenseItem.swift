@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ExpenseItem: Identifiable{
-    let id  = UUID()
+struct ExpenseItem: Identifiable, Codable{
+    var id  = UUID()
     // initializing here has Swift generate an uuid for us automatically.
     let name: String
     let price: Double

@@ -27,13 +27,14 @@ struct AddNewExpense: View {
                 }
                 TextField("price", value: $price, format: .currency(code: "USD"))
                     .keyboardType(.decimalPad)
-                
+            }
+            .navigationTitle("Add Expense")
+            .toolbar {
                 Button("Add"){
                     let expense = ExpenseItem(name: name, price: price, type: type)
                     expenses.items.append(expense)
                 }
             }
-            .navigationTitle("Add Expense")
         }
     }
 }
