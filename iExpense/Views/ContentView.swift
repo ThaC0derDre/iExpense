@@ -14,7 +14,10 @@ struct ContentView: View {
     var body: some View{
         NavigationView{
             List{
-                ForEach(expenses.items){ item in
+                Section{
+                    ForEach(expenses.personalEx) {
+                
+                 item in
                     HStack{
                         VStack{
                             Text(item.name)
@@ -24,10 +27,38 @@ struct ContentView: View {
                         }
                         Spacer()
                         
-                        Text(item.price, format: .currency(code: "USD"))
+                        Text(item.price, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                            .font(item.price<=50 ? .subheadline : (item.price<=100 ? .headline : .title3))
+                            .foregroundColor(item.price<=50 ? Color.green : (item.price<=100 ? Color.yellow : .red))
                     }
                 }
                 .onDelete(perform: deleteRow)
+                } header: {
+                    Text("Personal")
+                }
+                Section {
+                    ForEach(expenses.businessEx) {
+                
+                 item in
+                    HStack{
+                        VStack{
+                            Text(item.name)
+                                .font(.headline)
+                            
+                            Text(item.type)
+                        }
+                        Spacer()
+                        
+                        Text(item.price, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                            .font(item.price<=50 ? .subheadline : (item.price<=100 ? .headline : .title3))
+                            .foregroundColor(item.price<=50 ? Color.green : (item.price<=100 ? Color.yellow : .red))
+                    }
+                }
+                .onDelete(perform: deleteRow)
+                    
+                } header: {
+                    Text("Business")
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {
