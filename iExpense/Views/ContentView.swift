@@ -34,7 +34,7 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteRow)
                 } header: {
-                    Text("Personal")
+                    Text("🍿 Personal")
                 }
                 Section {
                     ForEach(expenses.businessEx) {
@@ -57,7 +57,7 @@ struct ContentView: View {
                 .onDelete(perform: deleteRow)
                     
                 } header: {
-                    Text("Business")
+                    Text("\(Image(systemName: "suitcase.fill")) Business ")
                 }
             }
             .navigationTitle("iExpense")
