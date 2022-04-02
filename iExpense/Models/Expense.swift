@@ -7,6 +7,6 @@
 
 import Foundation
 
-class Expense: ObservableObject {
-    @Published var item = [ExpenseItem]()
+class Expenses: ObservableObject {
+    @Published var items = [ExpenseItem]()
 }

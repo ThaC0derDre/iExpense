@@ -8,7 +8,7 @@
 import Foundation
 
 struct ExpenseItem {
-    var name: String
-    var price: Double
-    var type: String
+    let name: String
+    let price: Double
+    let type: String
 }

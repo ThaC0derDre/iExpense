@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var expense = Expense()
+    @StateObject var expenses = Expenses()
     
     var body: some View {
         NavigationView{
             List {
-                ForEach(expense.item, id: \.self) { item in
+                ForEach(expenses.items, id: \.name) { item in
                     Text(item.name)
                 }
                 .onDelete(perform: deleteRow)
@@ -22,7 +22,7 @@ struct ContentView: View {
             .toolbar {
                 Button{
                     let anExpense = ExpenseItem(name: "Whiskey", price: 75.00, type: "Pleasure")
-                    expense.item.append(anExpense)
+                    expenses.items.append(anExpense)
                 }label: {
                     Image(systemName: "plus")
                 }
@@ -31,7 +31,7 @@ struct ContentView: View {
         
     }
     func deleteRow(at offset: IndexSet){
-        expense.item.remove(atOffsets: offset)
+        expenses.items.remove(atOffsets: offset)
     }
 }
 
