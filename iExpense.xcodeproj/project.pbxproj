@@ -11,6 +11,11 @@
 		3107BF0D27F767A500C95D25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107BF0C27F767A500C95D25 /* ContentView.swift */; };
 		3107BF0F27F767A600C95D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3107BF0E27F767A600C95D25 /* Assets.xcassets */; };
 		3107BF1227F767A600C95D25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3107BF1127F767A600C95D25 /* Preview Assets.xcassets */; };
+		3107BF1927F79A5400C95D25 /* DismissTut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107BF1827F79A5400C95D25 /* DismissTut.swift */; };
+		3107BF1B27F7DF9300C95D25 /* OnDeleteTut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107BF1A27F7DF9300C95D25 /* OnDeleteTut.swift */; };
+		3107BF1E27F7E61800C95D25 /* UserDefaultTut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107BF1D27F7E61800C95D25 /* UserDefaultTut.swift */; };
+		3107BF2027F7F06400C95D25 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107BF1F27F7F06400C95D25 /* ExpenseItem.swift */; };
+		3107BF2327F7F0B800C95D25 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107BF2227F7F0B800C95D25 /* Expense.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		3107BF0C27F767A500C95D25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3107BF0E27F767A600C95D25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3107BF1127F767A600C95D25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3107BF1827F79A5400C95D25 /* DismissTut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissTut.swift; sourceTree = "<group>"; };
+		3107BF1A27F7DF9300C95D25 /* OnDeleteTut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDeleteTut.swift; sourceTree = "<group>"; };
+		3107BF1D27F7E61800C95D25 /* UserDefaultTut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultTut.swift; sourceTree = "<group>"; };
+		3107BF1F27F7F06400C95D25 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
+		3107BF2227F7F0B800C95D25 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,8 @@
 		3107BF0927F767A500C95D25 /* iExpense */ = {
 			isa = PBXGroup;
 			children = (
+				3107BF2127F7F06800C95D25 /* Models */,
+				3107BF1C27F7E04D00C95D25 /* TutorialViews */,
 				3107BF0A27F767A500C95D25 /* iExpenseApp.swift */,
 				3107BF0C27F767A500C95D25 /* ContentView.swift */,
 				3107BF0E27F767A600C95D25 /* Assets.xcassets */,
@@ -65,6 +77,25 @@
 				3107BF1127F767A600C95D25 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3107BF1C27F7E04D00C95D25 /* TutorialViews */ = {
+			isa = PBXGroup;
+			children = (
+				3107BF1A27F7DF9300C95D25 /* OnDeleteTut.swift */,
+				3107BF1D27F7E61800C95D25 /* UserDefaultTut.swift */,
+				3107BF1827F79A5400C95D25 /* DismissTut.swift */,
+			);
+			path = TutorialViews;
+			sourceTree = "<group>";
+		};
+		3107BF2127F7F06800C95D25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3107BF1F27F7F06400C95D25 /* ExpenseItem.swift */,
+				3107BF2227F7F0B800C95D25 /* Expense.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3107BF2327F7F0B800C95D25 /* Expense.swift in Sources */,
 				3107BF0D27F767A500C95D25 /* ContentView.swift in Sources */,
+				3107BF2027F7F06400C95D25 /* ExpenseItem.swift in Sources */,
+				3107BF1E27F7E61800C95D25 /* UserDefaultTut.swift in Sources */,
+				3107BF1B27F7DF9300C95D25 /* OnDeleteTut.swift in Sources */,
 				3107BF0B27F767A500C95D25 /* iExpenseApp.swift in Sources */,
+				3107BF1927F79A5400C95D25 /* DismissTut.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
