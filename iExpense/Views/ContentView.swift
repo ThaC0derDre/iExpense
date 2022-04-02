@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var expenses  = Expenses()
+    @StateObject var expenses               = Expenses()
+    @State private var showAddExpenseView   = false
     
     var body: some View{
         NavigationView{
@@ -21,12 +22,14 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             .toolbar {
                 Button{
-                    let expense = ExpenseItem(name: "Whiskey", price: 75.00, type: "Personal")
-                    expenses.items.append(expense)
+                    showAddExpenseView.toggle()
                 } label: {
                     Image(systemName: "plus")
                 }
             }
+        }
+        .sheet(isPresented: $showAddExpenseView) {
+            AddNewExpense(expenses: expenses)
         }
     }
     func deleteRow(at offset: IndexSet){
