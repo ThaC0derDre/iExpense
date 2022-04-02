@@ -23,7 +23,6 @@ struct ContentView: View {
                             Text(item.name)
                                 .font(.headline)
                             
-                            Text(item.type)
                         }
                         Spacer()
                         
@@ -32,7 +31,7 @@ struct ContentView: View {
                             .foregroundColor(item.price<=50 ? Color.green : (item.price<=100 ? Color.yellow : .red))
                     }
                 }
-                .onDelete(perform: deleteRow)
+                .onDelete(perform: removePersonalItems)
                 } header: {
                     Text("🍿 Personal")
                 }
@@ -45,7 +44,6 @@ struct ContentView: View {
                             Text(item.name)
                                 .font(.headline)
                             
-                            Text(item.type)
                         }
                         Spacer()
                         
@@ -54,7 +52,7 @@ struct ContentView: View {
                             .foregroundColor(item.price<=50 ? Color.green : (item.price<=100 ? Color.yellow : .red))
                     }
                 }
-                .onDelete(perform: deleteRow)
+                .onDelete(perform: removeBusinessItems)
                     
                 } header: {
                     Text("\(Image(systemName: "suitcase.fill")) Business ")
@@ -73,9 +71,35 @@ struct ContentView: View {
             AddNewExpense(expenses: expenses)
         }
     }
-    func deleteRow(at offset: IndexSet){
-        expenses.items.remove(atOffsets: offset)
-    }
+    func removePersonalItems(at offsets: IndexSet) {
+
+      // look at each item we are trying to delete
+      for offset in offsets {
+
+        // look in the personalItems array and get that specific item we are trying to delete. Find it's corresponding match in the expenses.items array.
+          if let index = expenses.items.firstIndex(where: {$0.id == expenses.personalEx[offset].id}) {
+
+          // delete the item from the expenses.items array at the index you found its match
+            expenses.items.remove(at: index)
+
+          }
+        }
+      }
+    
+    func removeBusinessItems(at offsets: IndexSet) {
+
+      // look at each item we are trying to delete
+      for offset in offsets {
+
+        // look in the personalItems array and get that specific item we are trying to delete. Find it's corresponding match in the expenses.items array.
+          if let index = expenses.items.firstIndex(where: {$0.id == expenses.businessEx[offset].id}) {
+
+          // delete the item from the expenses.items array at the index you found its match
+            expenses.items.remove(at: index)
+
+          }
+        }
+      }
 }
 
 
