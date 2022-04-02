@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var expenses = Expenses()
+    @StateObject var expenses  = Expenses()
     
-    var body: some View {
+    var body: some View{
         NavigationView{
-            List {
-                ForEach(expenses.items, id: \.name) { item in
+            List{
+                ForEach(expenses.items){ item in
                     Text(item.name)
                 }
                 .onDelete(perform: deleteRow)
@@ -21,19 +21,19 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             .toolbar {
                 Button{
-                    let anExpense = ExpenseItem(name: "Whiskey", price: 75.00, type: "Pleasure")
-                    expenses.items.append(anExpense)
-                }label: {
+                    let expense = ExpenseItem(name: "Whiskey", price: 75.00, type: "Personal")
+                    expenses.items.append(expense)
+                } label: {
                     Image(systemName: "plus")
                 }
             }
         }
-        
     }
     func deleteRow(at offset: IndexSet){
         expenses.items.remove(atOffsets: offset)
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

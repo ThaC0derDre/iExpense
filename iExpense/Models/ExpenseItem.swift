@@ -7,8 +7,11 @@
 
 import Foundation
 
-struct ExpenseItem {
+struct ExpenseItem: Identifiable{
+    let id  = UUID()
+    // initializing here has Swift generate an uuid for us automatically.
     let name: String
     let price: Double
     let type: String
 }
+/* adding identifiable and UUID eliminates the need for id: in our ForEach loop.*/
