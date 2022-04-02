@@ -12,8 +12,12 @@ struct AddNewExpense: View {
     @Environment(\.dismiss) private var dismiss
     @State private var name     = ""
     @State private var type     = "Personal"
-    @State private var price   = 0.0
+    @State private var price    = 0.0
     @State private var types    = ["Personal", "Business"]
+    @State private var enteredNumber = ""
+        var enteredNumberFormatted: Double {
+            return (Double(enteredNumber) ?? 0) / 100
+        }
     
     var body: some View {
         NavigationView{
@@ -26,8 +30,14 @@ struct AddNewExpense: View {
                     }
                     
                 }
-                TextField("price", value: $price, format: .currency(code: "USD"))
-                    .keyboardType(.decimalPad)
+                ZStack(alignment: .leading) {
+                    Text("\(enteredNumberFormatted, specifier: "%.2f")")
+                                    TextField("", text: $enteredNumber)
+                                        .keyboardType(.numberPad).foregroundColor(.clear)
+                                        .textFieldStyle(PlainTextFieldStyle())
+                                        .disableAutocorrection(true)
+                                        .accentColor(.clear)
+                                }
             }
             .navigationTitle("Add Expense")
             .toolbar {
